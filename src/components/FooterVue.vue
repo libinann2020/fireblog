@@ -38,7 +38,12 @@
 <script>
 export default {
     name:"FooterVue",
-    components:{}
+    components:{},
+    computed: {
+        user() {
+            return this.$store.state.user;
+        } 
+    }
 };
 </script>
 

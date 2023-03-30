@@ -3,6 +3,8 @@ import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
 import RegisterView from '../views/RegisterView.vue'
 import ForgotPassword from '../views/ForgotPassword.vue'
+import ProfileVue from '../views/ProfileVue.vue'
+import AdminVue from '../views/AdminVue.vue'
 
 const routes = [
   {
@@ -51,6 +53,22 @@ const routes = [
     component: ForgotPassword,
     meta: {
       title: 'Forgot Password'
+    }
+  },
+  {
+    path: '/profile',
+    name: 'ProfileVue',
+    component: ProfileVue,
+    meta: {
+      title: 'Profile'
+    }
+  },
+  {
+    path: '/admin',
+    name: 'AdminVue',
+    component: AdminVue,
+    meta: {
+      title: 'Admin'
     }
   }
 ]

@@ -41,7 +41,7 @@
 // import "firebase/auth";
 // import db from "../firebase/firebaseInit";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, setDoc, collection } from "firebase/firestore";
 import { db } from "../firebase/firebaseInit";
 export default {
     name: "RegisterView",
@@ -73,14 +73,14 @@ export default {
                 // });
                 const auth = getAuth();
                 const createUser = await createUserWithEmailAndPassword(auth, this.email, this.password);
-                const user = createUser.user;
-          console.log('db:', db);
-                const database = doc(db, "users", user.uid);
-          console.log('database:', database); 
+                const result = await createUser;
+                // const user = createUser.user;
+                // const database = doc(db, "users", user.uid);
+                const database = doc(collection(db, "users"), result.user.uid);
                 await setDoc(database, {
                     firstName: this.firstName,
                     lastName: this.lastName,
-                    userName: this.userName,
+                    username: this.username,
                     email: this.email,
                 });
                 this.$router.push({name: 'Home'})

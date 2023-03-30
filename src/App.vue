@@ -25,14 +25,12 @@ export default {
   },
   created() {
     const auth = getAuth();
-    console.log(auth)
     onAuthStateChanged(auth, (user) => {
-    console.log(user)
       this.$store.commit("updateUser", user);
       if(user) {
-        this.$store.dispatch("getCurrentUser")
+        this.$store.dispatch("getCurrentUser");
       }
-    })
+    });
     this.checkRoute();
     // setTimeout(() => {
     //   console.log(auth.currentUser.uid);

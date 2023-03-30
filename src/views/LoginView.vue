@@ -59,9 +59,7 @@ export default {
                 this.$router.push({name: "Home"});
                 this.error = false;
                 this.errorMsg = "";
-                console.log(auth.currentUser.uid);
             }).catch((err) => {
-                console.log(err.code)
                 switch(err.code){
                 case 'auth/invalid-email':
                     this.error = true;
