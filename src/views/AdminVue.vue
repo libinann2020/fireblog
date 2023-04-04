@@ -8,20 +8,30 @@
                     <input placeholder="Enter user email to make them an admin" type="text" id="addAdmins" v-model="adminEmail" />
                 </div>
                 <span>{{ this.functionMsg }}</span>
-                <button class="button">Submit</button>
+                <button @click="addAdmin" class="button">Submit</button>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import { getAuth } from "firebase/auth";
+import { getFunctions, httpsCallable } from "firebase/functions";
 export default {
     name:"AdminVue",
     data() {
         return {
             adminEmail:"",
             functionMsg:null
+        }
+    },
+    methods: {
+        async addAdmin() {
+            // const addAdmin = await firebase.functions().httpsCallable('addAdminRole');
+            // const result = await addAdmin({email: this.adminEmail});
+            // this.functionMsg = result.data.message;
+            const addAdmin = httpsCallable(getFunctions(), 'addAdminRole');
+            const result = await addAdmin({ email: this.adminEmail });
+            this.functionMsg = result.data.message;
         }
     }
 };

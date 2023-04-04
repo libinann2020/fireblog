@@ -52,3 +52,10 @@ open firebase and create new project-> fireblogsyt
 build->authentication->get started button->select email/password->enable email/password toggle->save
 build->firestore database->create database->select start in test mode->next->enable
 project overview->click on web(</>)->register app add name and click on register app button->
+
+firebase functions cannot be implemented as we need to upgrade to Blaze (pay-as-you-go) plan to complete the command firebase deploy --only functions
+
+
+https://vueup.github.io/vue-quill/
+
+https://stackoverflow.com/questions/71468563/quill-editor-wont-display-v-model-in-input-field-vue-3

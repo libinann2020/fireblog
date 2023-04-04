@@ -28,10 +28,13 @@ export default {
     onAuthStateChanged(auth, (user) => {
       this.$store.commit("updateUser", user);
       if(user) {
-        this.$store.dispatch("getCurrentUser");
+        // const token = await user.getIdTokenResult();
+        // console.log(token.claims);
+        this.$store.dispatch("getCurrentUser", user);
       }
     });
     this.checkRoute();
+    this.$store.dispatch("getPost");
     // setTimeout(() => {
     //   console.log(auth.currentUser.uid);
     // }, 2000);
